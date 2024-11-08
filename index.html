@@ -1,276 +1,363 @@
-import React, { useState, useEffect } from 'react';
-import { Twitter, Linkedin, ExternalLink, Star, GitFork } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <style>
+        /* Previous styles remain the same until social-link */
+        /* (I'm keeping the previous styles for brevity, but they're exactly the same) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-const Portfolio = () => {
-  const [activeTab, setActiveTab] = useState('professional');
-  
-  const profile = {
-    name: "Your Name",
-    bio: "Full-stack developer specializing in React and Node.js. Building digital solutions that matter.",
-    image: "/api/placeholder/150/150",
-    twitter: "https://twitter.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    medium: "https://medium.com/@yourusername"
-  };
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            background-color: #09090b;
+            color: #fafafa;
+            line-height: 1.6;
+        }
 
-  // Load Twitter widget script
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://platform.twitter.com/widgets.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [activeTab]);
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
 
-  const professionalWork = [
-    {
-      title: "E-commerce Platform",
-      description: "Built a scalable e-commerce solution using React and Node.js",
-      link: "#",
-      tags: ["React", "Node.js", "MongoDB"]
-    },
-    {
-      title: "Healthcare Dashboard",
-      description: "Developed analytics dashboard for healthcare providers",
-      link: "#",
-      tags: ["Vue.js", "Python", "D3.js"]
-    }
-  ];
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-  const showcase = [
-    {
-      type: "tweet",
-      content: `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Unusable Player gets a dark mode 🖤 <a href="https://t.co/7jHHMoC7Vo">pic.twitter.com/7jHHMoC7Vo</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1525104416319315970?ref_src=twsrc%5Etfw">May 13, 2022</a></blockquote>`
-    },
-    {
-      type: "project",
-      title: "Side Project Showcase",
-      description: "A personal project built with Next.js and Three.js",
-      link: "#",
-      image: "/api/placeholder/400/200"
-    }
-  ];
+        .profile-img {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            border: 2px solid #27272a;
+            margin-bottom: 2rem;
+        }
 
-  const articles = [
-    {
-      title: "Building Scalable React Applications",
-      description: "A deep dive into architecture patterns and best practices",
-      date: "Mar 15, 2024",
-      readTime: "8 min read",
-      link: "#"
-    },
-    {
-      title: "The Future of Web Development",
-      description: "Exploring upcoming trends and technologies",
-      date: "Feb 28, 2024",
-      readTime: "12 min read",
-      link: "#"
-    }
-  ];
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
 
-  const openSource = [
-    {
-      name: "react-awesome-lib",
-      description: "A collection of React hooks and utilities",
-      stars: 1200,
-      forks: 150,
-      link: "#",
-      tags: ["TypeScript", "React"]
-    },
-    {
-      name: "node-api-starter",
-      description: "Production-ready Node.js API boilerplate",
-      stars: 850,
-      forks: 120,
-      link: "#",
-      tags: ["Node.js", "Express"]
-    }
-  ];
+        .bio {
+            color: #a1a1aa;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
 
-  const tabs = [
-    { id: 'professional', label: 'Professional Work' },
-    { id: 'showcase', label: 'Showcase' },
-    { id: 'articles', label: 'Articles' },
-    { id: 'opensource', label: 'Open Source' }
-  ];
+        /* Updated social links with SVG */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'professional':
-        return (
-          <div className="grid gap-4 md:grid-cols-2">
-            {professionalWork.map((project, index) => (
-              <a
-                key={index}
-                href={project.link}
-                className="group block p-6 bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
-              >
-                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
-                  {project.title}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, i) => (
-                    <span key={i} className="px-2 py-1 text-xs rounded-md bg-zinc-800 text-zinc-300">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </a>
-            ))}
-          </div>
-        );
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            background-color: #18181b;
+            border: 1px solid #27272a;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
 
-      case 'showcase':
-        return (
-          <div className="space-y-8">
-            {showcase.map((item, index) => (
-              <div key={index} className="bg-zinc-900 rounded-lg border border-zinc-800 overflow-hidden">
-                {item.type === 'tweet' ? (
-                  <div className="p-4" dangerouslySetInnerHTML={{ __html: item.content }} />
-                ) : (
-                  <a href={item.link} className="block group">
-                    <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
-                    <div className="p-6">
-                      <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
-                        {item.title}
-                      </h3>
-                      <p className="text-zinc-400 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        );
+        .social-link:hover {
+            background-color: #27272a;
+            color: #fafafa;
+        }
 
-      case 'articles':
-        return (
-          <div className="space-y-4">
-            {articles.map((article, index) => (
-              <a
-                key={index}
-                href={article.link}
-                className="group block p-6 bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
-              >
-                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
-                  {article.title}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-3">
-                  {article.description}
-                </p>
-                <div className="flex items-center gap-3 text-xs text-zinc-500">
-                  <span>{article.date}</span>
-                  <span>•</span>
-                  <span>{article.readTime}</span>
-                </div>
-              </a>
-            ))}
-          </div>
-        );
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
 
-      case 'opensource':
-        return (
-          <div className="space-y-4">
-            {openSource.map((repo, index) => (
-              <a
-                key={index}
-                href={repo.link}
-                className="group block p-6 bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
-              >
-                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
-                  {repo.name}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  {repo.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-wrap gap-2">
-                    {repo.tags.map((tag, i) => (
-                      <span key={i} className="px-2 py-1 text-xs rounded-md bg-zinc-800 text-zinc-300">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4 text-zinc-400">
-                    <div className="flex items-center gap-1">
-                      <Star size={16} />
-                      <span className="text-sm">{repo.stars}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <GitFork size={16} />
-                      <span className="text-sm">{repo.forks}</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        );
-    }
-  };
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #18181b;
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            border: 1px solid #27272a;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
 
-  return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 p-8">
-      {/* Header Section */}
-      <header className="max-w-3xl mx-auto mb-16 text-center">
-        <img
-          src={profile.image}
-          alt={profile.name}
-          className="w-32 h-32 rounded-full mx-auto mb-8 ring-2 ring-zinc-800"
-        />
-        <h1 className="text-4xl font-bold mb-4 text-white tracking-tight">{profile.name}</h1>
-        <p className="text-xl text-zinc-400 mb-10 leading-relaxed">{profile.bio}</p>
-        
-        {/* Social Links */}
-        <div className="flex justify-center gap-3">
-          {[
-            { icon: <Twitter size={18} />, link: profile.twitter },
-            { icon: <Linkedin size={18} />, link: profile.linkedin },
-            { icon: <ExternalLink size={18} />, link: profile.medium }
-          ].map((social, index) => (
-            <a
-              key={index}
-              href={social.link}
-              className="flex items-center justify-center w-10 h-10 bg-zinc-900 rounded-lg border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
-            >
-              {social.icon}
-            </a>
-          ))}
+        .tab {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: none;
+            background: none;
+            color: #a1a1aa;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #fafafa;
+        }
+
+        .tab.active {
+            background-color: #27272a;
+            color: #fafafa;
+        }
+
+        .content-section {
+            display: none;
+            gap: 1rem;
+        }
+
+        .content-section.active {
+            display: grid;
+        }
+
+        .card {
+            background-color: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            border-color: #3f3f46;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fafafa;
+        }
+
+        .card-description {
+            color: #a1a1aa;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #27272a;
+            color: #d4d4d8;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 0.75rem;
+            color: #71717a;
+            font-size: 0.75rem;
+        }
+
+        .repo-stats {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            color: #a1a1aa;
+            font-size: 0.875rem;
+        }
+
+        .repo-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .repo-stat svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .twitter-tweet {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <img src="/api/placeholder/150/150" alt="Profile" class="profile-img">
+            <h1 class="name">Your Name</h1>
+            <p class="bio">Full-stack developer specializing in React and Node.js. Building digital solutions that matter.</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="professional">Professional Work</button>
+            <button class="tab" data-tab="showcase">Showcase</button>
+            <button class="tab" data-tab="articles">Articles</button>
+            <button class="tab" data-tab="opensource">Open Source</button>
         </div>
-      </header>
 
-      {/* Tab Navigation */}
-      <div className="max-w-3xl mx-auto mb-12">
-        <div className="flex justify-center gap-2 p-1 bg-zinc-900 rounded-lg border border-zinc-800 w-fit mx-auto">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-md font-medium text-sm transition-colors ${
-                activeTab === tab.id
-                  ? 'bg-zinc-800 text-white'
-                  : 'text-zinc-400 hover:text-zinc-300'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
+        <!-- Content Sections -->
+        <main>
+            <!-- Professional Work -->
+            <section id="professional" class="content-section active grid-2">
+                <div class="card">
+                    <h3 class="card-title">E-commerce Platform</h3>
+                    <p class="card-description">Built a scalable e-commerce solution using React and Node.js</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Healthcare Dashboard</h3>
+                    <p class="card-description">Developed analytics dashboard for healthcare providers</p>
+                    <div class="tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">D3.js</span>
+                    </div>
+                </div>
+            </section>
 
-      {/* Content Section */}
-      <main className="max-w-3xl mx-auto">
-        {renderContent()}
-      </main>
+            <!-- Showcase -->
+            <section id="showcase" class="content-section">
+                <div class="card">
+                    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Unusable Player gets a dark mode 🖤 <a href="https://t.co/7jHHMoC7Vo">pic.twitter.com/7jHHMoC7Vo</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1525104416319315970?ref_src=twsrc%5Etfw">May 13, 2022</a></blockquote>
+                </div>
+            </section>
+
+            <!-- Articles -->
+            <section id="articles" class="content-section">
+                <div class="card">
+                    <h3 class="card-title">Building Scalable React Applications</h3>
+                    <p class="card-description">A deep dive into architecture patterns and best practices</p>
+                    <div class="article-meta">
+                        <span>Mar 15, 2024</span>
+                        <span>•</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">The Future of Web Development</h3>
+                    <p class="card-description">Exploring upcoming trends and technologies</p>
+                    <div class="article-meta">
+                        <span>Feb 28, 2024</span>
+                        <span>•</span>
+                        <span>12 min read</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Open Source -->
+            <section id="opensource" class="content-section">
+                <div class="card">
+                    <h3 class="card-title">react-awesome-lib</h3>
+                    <p class="card-description">A collection of React hooks and utilities</p>
+                    <div class="tags">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">React</span>
+                    </div>
+                    <div class="repo-stats">
+                        <div class="repo-stat">
+                            <svg viewBox="0 0 24 24">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                            <span>1.2k</span>
+                        </div>
+                        <div class="repo-stat">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 7l6-6 6 6"/>
+                                <path d="M13 1v14"/>
+                                <path d="M5 11l6 6 6-6"/>
+                            </svg>
+                            <span>150</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-  );
-};
 
-export default Portfolio;
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and sections
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

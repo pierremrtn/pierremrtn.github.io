@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -223,18 +224,48 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-          <header class="header">
+        <header class="header">
             <img src="profile.png" alt="Pierre Martin" class="profile-img">
             <h1 class="name">Pierre Martin</h1>
             <p class="bio">
-                Developer specialized in building cross-platform apps with a passion for Design, Dev, and Business. 
-                Currently building <a href="https://FirestoreModeler.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300">FirestoreModeler.com</a>
+                Developer specialized in building cross-platform apps with a passion for Design, Dev, and Business.
+                Currently building <a href="https://FirestoreModeler.com" target="_blank" rel="noopener noreferrer"
+                    class="text-blue-400 hover:text-blue-300">FirestoreModeler.com</a>
             </p>
-            
+
             <div class="social-links">
-                <!-- [Previous social links remain the same] -->
+                <a href="https://twitter.com/pierremartin_" class="social-link" target="_blank"
+                    rel="noopener noreferrer" title="Twitter">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/pierremrtn/" class="social-link" target="_blank"
+                    rel="noopener noreferrer" title="Linkedin">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="https://medium.com/@pierremartin_" class="social-link" target="_blank"
+                    rel="noopener noreferrer" title="Medium">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                    </svg>
+                </a>
+                <a href="https://github.com/pierremrtn" class="social-link" target="_blank" rel="noopener noreferrer"
+                    title="GitHub">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                </a>
             </div>
         </header>
 
@@ -243,135 +274,176 @@
             <button class="tab active" data-tab="professional">Professional Work</button>
             <button class="tab" data-tab="showcase">Showcase</button>
             <button class="tab" data-tab="articles">Articles</button>
-            <button class="tab" data-tab="opensource">Open Source</button>
         </div>
 
         <!-- Content Sections -->
         <main>
             <!-- Professional Work -->
             <section id="professional" class="content-section active grid-2">
-                <a href="https://medium.com/@pierremartin_/how-to-prevent-flutter-widgets-from-being-animated-off-screen-dfd9132d573e">
-                <div class="card">
-                    <h3 class="card-title">Web Audio Platform</h3>
-                    <p class="card-description">Developed a modern web audio player with advanced features and seamless user experience</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Web Audio API</span>
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.frecom.evolveme&hl=en">
+                    <div class="card">
+                        <h3 class="card-title">EvolveMe</h3>
+                        <p class="card-description">Nutrition tracking app with an AI coach.</p>
+                        <div class="tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">iOS</span>
+                            <span class="tag">AI</span>
+                        </div>
                     </div>
-                </div>
                 </a>
-                    
-                <div class="card">
-                    <h3 class="card-title">Full-Stack Development</h3>
-                    <p class="card-description">Building scalable applications with modern technologies and best practices</p>
-                    <div class="tags">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
+
+                <a target="_blank" href="https://play.google.com/store/apps/details?id=com.nbx.my_unbox&hl=en">
+                    <div class="card">
+                        <h3 class="card-title">MyUnbox</h3>
+                        <p class="card-description">Blockchain-based Identity management tool</p>
+                        <div class="tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">iOS</span>
+                            <span class="tag">Blockchain</span>
+                        </div>
                     </div>
-                </div>
+                </a>
+
+                <a target="_blank"
+                    href="https://play.google.com/store/apps/details?id=com.urbandriver.app_client&hl=en">
+                    <div class="card">
+                        <h3 class="card-title">Urban Driver</h3>
+                        <p class="card-description">Taxi and motorbike booking app</p>
+                        <div class="tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">iOS</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a target="_blank" href="https://mistermateriaux.com/">
+                    <div class="card">
+                        <h3 class="card-title">Mister Materiaux</h3>
+                        <p class="card-description">DIY tools and spare parts store</p>
+                        <div class="tags">
+                            <span class="tag">Web</span>
+                            <span class="tag">eCommerce</span>
+                        </div>
+                    </div>
+                </a>
             </section>
 
             <!-- Showcase -->
-      <section id="showcase" class="content-section">
+            <section id="showcase" class="content-section">
                 <div class="space-y-6">
-                    <!-- Shake discount tweet -->
+
+
+                    <!-- Drag & drop interaction tweet -->
                     <div class="card">
                         <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">I created a shake-to-discount interaction because Apple&#39;s macbook is too expensive 🫨😂<br><br>Use with care you might be disappointed tho...<br><br>Built with Flutter 😎 - Sounds on 🔊 <a href="https://t.co/S9CN7WWvXy">pic.twitter.com/S9CN7WWvXy</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1798218193527623942?ref_src=twsrc%5Etfw">June 5, 2024</a>
+                            <p lang="en" dir="ltr">Drag &amp; drop interaction with morphing animation ⟢°<br><br>Built
+                                with Flutter<br>Original design by <a
+                                    href="https://twitter.com/OleksandrPlyuto?ref_src=twsrc%5Etfw">@OleksandrPlyuto</a>
+                                <a href="https://t.co/tMII1sg6vF">pic.twitter.com/tMII1sg6vF</a>
+                            </p>&mdash; Pierre
+                            (@pierremartin_) <a
+                                href="https://twitter.com/pierremartin_/status/1793039063680946302?ref_src=twsrc%5Etfw">May
+                                21, 2024</a>
                         </blockquote>
                     </div>
 
                     <!-- Figma toolbar tweet -->
                     <div class="card">
                         <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">I&#39;ve recreated Figma&#39;s toolbar animation in <a href="https://twitter.com/hashtag/Flutter?src=hash&amp;ref_src=twsrc%5Etfw">#Flutter</a>.<br><br>Surprisingly simple: ~100 lines for the animation widget.<br><br>Here&#39;s how I did it (source code at the end) ⬇️ <a href="https://t.co/8yDl04415Y">pic.twitter.com/8yDl04415Y</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1823299301726138746?ref_src=twsrc%5Etfw">August 13, 2024</a>
+                            <p lang="en" dir="ltr">I&#39;ve recreated Figma&#39;s toolbar animation in <a
+                                    href="https://twitter.com/hashtag/Flutter?src=hash&amp;ref_src=twsrc%5Etfw">#Flutter</a>.<br><br>Surprisingly
+                                simple: ~100 lines for the animation widget.<br><br>Here&#39;s how I did it (source code
+                                at the end) ⬇️ <a href="https://t.co/8yDl04415Y">pic.twitter.com/8yDl04415Y</a></p>
+                            &mdash; Pierre (@pierremartin_) <a
+                                href="https://twitter.com/pierremartin_/status/1823299301726138746?ref_src=twsrc%5Etfw">August
+                                13, 2024</a>
                         </blockquote>
                     </div>
 
                     <!-- Firestore Modeler tweet -->
                     <div class="card">
                         <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">Brand new node-based editor for Firestore Modeler ⎇<br><br>Built with <a href="https://twitter.com/hashtag/Flutter?src=hash&amp;ref_src=twsrc%5Etfw">#Flutter</a> <a href="https://t.co/vg3fqgRKr8">pic.twitter.com/vg3fqgRKr8</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1849007746324291623?ref_src=twsrc%5Etfw">October 23, 2024</a>
+                            <p lang="en" dir="ltr">Brand new node-based editor for Firestore Modeler ⎇<br><br>Built with
+                                <a
+                                    href="https://twitter.com/hashtag/Flutter?src=hash&amp;ref_src=twsrc%5Etfw">#Flutter</a>
+                                <a href="https://t.co/vg3fqgRKr8">pic.twitter.com/vg3fqgRKr8</a>
+                            </p>&mdash; Pierre
+                            (@pierremartin_) <a
+                                href="https://twitter.com/pierremartin_/status/1849007746324291623?ref_src=twsrc%5Etfw">October
+                                23, 2024</a>
                         </blockquote>
                     </div>
 
                     <!-- VS Code Extension tweet -->
                     <div class="card">
                         <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">Do you know you can use Flutter to build VS Code extensions ? 😎<br><br>I wrote a step-by-step guide on how to do it ⬇️<a href="https://t.co/VVi3h0UXhX">https://t.co/VVi3h0UXhX</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1850499621216489709?ref_src=twsrc%5Etfw">October 27, 2024</a>
+                            <p lang="en" dir="ltr">Do you know you can use Flutter to build VS Code extensions ?
+                                😎<br><br>I wrote a step-by-step guide on how to do it ⬇️<a
+                                    href="https://t.co/VVi3h0UXhX">https://t.co/VVi3h0UXhX</a></p>&mdash; Pierre
+                            (@pierremartin_) <a
+                                href="https://twitter.com/pierremartin_/status/1850499621216489709?ref_src=twsrc%5Etfw">October
+                                27, 2024</a>
                         </blockquote>
                     </div>
+
+                    <!-- Shake discount tweet -->
+                    <div class="card">
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">I created a shake-to-discount interaction because Apple&#39;s macbook
+                                is too expensive 🫨😂<br><br>Use with care you might be disappointed tho...<br><br>Built
+                                with Flutter 😎 - Sounds on 🔊 <a
+                                    href="https://t.co/S9CN7WWvXy">pic.twitter.com/S9CN7WWvXy</a></p>&mdash; Pierre
+                            (@pierremartin_) <a
+                                href="https://twitter.com/pierremartin_/status/1798218193527623942?ref_src=twsrc%5Etfw">June
+                                5, 2024</a>
+                        </blockquote>
+                    </div>
+
 
                     <!-- Slider thumb tweet -->
                     <div class="card">
                         <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">I&#39;ve made a custom slider jiggling thumb for my portfolio app:<a href="https://twitter.com/hashtag/flutter?src=hash&amp;ref_src=twsrc%5Etfw">#flutter</a> <a href="https://twitter.com/hashtag/motionGraphics?src=hash&amp;ref_src=twsrc%5Etfw">#motionGraphics</a> <a href="https://twitter.com/hashtag/cool?src=hash&amp;ref_src=twsrc%5Etfw">#cool</a> <a href="https://twitter.com/hashtag/unusable_player?src=hash&amp;ref_src=twsrc%5Etfw">#unusable_player</a> <a href="https://t.co/KvtPJfj3Dk">pic.twitter.com/KvtPJfj3Dk</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1465824954620989440?ref_src=twsrc%5Etfw">November 30, 2021</a>
+                            <p lang="en" dir="ltr">I&#39;ve made a custom slider jiggling thumb for my portfolio app:<a
+                                    href="https://twitter.com/hashtag/flutter?src=hash&amp;ref_src=twsrc%5Etfw">#flutter</a>
+                                <a
+                                    href="https://twitter.com/hashtag/motionGraphics?src=hash&amp;ref_src=twsrc%5Etfw">#motionGraphics</a>
+                                <a href="https://twitter.com/hashtag/cool?src=hash&amp;ref_src=twsrc%5Etfw">#cool</a> <a
+                                    href="https://twitter.com/hashtag/unusable_player?src=hash&amp;ref_src=twsrc%5Etfw">#unusable_player</a>
+                                <a href="https://t.co/KvtPJfj3Dk">pic.twitter.com/KvtPJfj3Dk</a>
+                            </p>&mdash; Pierre
+                            (@pierremartin_) <a
+                                href="https://twitter.com/pierremartin_/status/1465824954620989440?ref_src=twsrc%5Etfw">November
+                                30, 2021</a>
                         </blockquote>
                     </div>
 
-                    <!-- Drag & drop interaction tweet -->
-                    <div class="card">
-                        <blockquote class="twitter-tweet">
-                            <p lang="en" dir="ltr">Drag &amp; drop interaction with morphing animation ⟢°<br><br>Built with Flutter<br>Original design by <a href="https://twitter.com/OleksandrPlyuto?ref_src=twsrc%5Etfw">@OleksandrPlyuto</a> <a href="https://t.co/tMII1sg6vF">pic.twitter.com/tMII1sg6vF</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1793039063680946302?ref_src=twsrc%5Etfw">May 21, 2024</a>
-                        </blockquote>
-                    </div>
                 </div>
             </section>
 
-         <!-- Simplified Articles section -->
+            <!-- Simplified Articles section -->
             <section id="articles" class="content-section">
-                <div class="space-y-3">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
                     <!-- Drag and Drop Article -->
-                   <a href="https://medium.com/@pierremartin_/how-to-prevent-flutter-widgets-from-being-animated-off-screen-dfd9132d573e">
-                    <div class="card">
-                    <h3 class="card-title">Web Audio Platform</h3>
-                    <p class="card-description">Developed a modern web audio player with advanced features and seamless user experience</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Web Audio API</span>
-                    </div>
-                    </div>
+                    <a target="_blank"
+                        href="https://medium.com/@pierremartin_/how-to-prevent-flutter-widgets-from-being-animated-off-screen-dfd9132d573e">
+                        <div class="card">
+                            <h3 class="card-title">How to prevent Flutter widgets from being animated off-screen</h3>
+                        </div>
                     </a>
 
-                    <a href="https://medium.com/@pierremartin_/how-to-prevent-flutter-widgets-from-being-animated-off-screen-dfd9132d573e">
-                    <div class="card">
-                    <h3 class="card-title">Web Audio Platform</h3>
-                    <p class="card-description">Developed a modern web audio player with advanced features and seamless user experience</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Web Audio API</span>
-                    </div>
-                    </div>
+                    <a target="_blank"
+                        href="https://medium.com/@pierremartin_/how-to-create-a-vs-code-extension-with-flutter-6ebf51dbe406">
+                        <div class="card">
+                            <h3 class="card-title">How to Create a VS Code Extension with Flutter</h3>
+                        </div>
                     </a>
 
-                    <a href="https://medium.com/@pierremartin_/how-to-prevent-flutter-widgets-from-being-animated-off-screen-dfd9132d573e">
-                    <div class="card">
-                    <h3 class="card-title">Web Audio Platform</h3>
-                    <p class="card-description">Developed a modern web audio player with advanced features and seamless user experience</p>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Web Audio API</span>
-                    </div>
-                    </div>
+                    <a target="_blank"
+                        href="https://medium.com/@pierremartin_/drag-and-drop-with-morphing-animation-in-flutter-bdf451cb17cc">
+                        <div class="card">
+                            <h3 class="card-title">Drag and Drop with Morphing Animation in Flutter</h3>
+                        </div>
                     </a>
-                </div>
-            </section>
-
-            <!-- Open Source -->
-            <section id="opensource" class="content-section">
-                <div class="card">
-                    <h3 class="card-title">Web Audio Player</h3>
-                    <p class="card-description">A modern web audio player built with React and Web Audio API</p>
-                    <div class="tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Web Audio</span>
-                    </div>
                 </div>
             </section>
         </main>
@@ -389,6 +461,7 @@
         });
     </script>
 
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
+
 </html>

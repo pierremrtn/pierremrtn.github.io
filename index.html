@@ -1,0 +1,276 @@
+import React, { useState, useEffect } from 'react';
+import { Twitter, Linkedin, ExternalLink, Star, GitFork } from 'lucide-react';
+
+const Portfolio = () => {
+  const [activeTab, setActiveTab] = useState('professional');
+  
+  const profile = {
+    name: "Your Name",
+    bio: "Full-stack developer specializing in React and Node.js. Building digital solutions that matter.",
+    image: "/api/placeholder/150/150",
+    twitter: "https://twitter.com/yourusername",
+    linkedin: "https://linkedin.com/in/yourusername",
+    medium: "https://medium.com/@yourusername"
+  };
+
+  // Load Twitter widget script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [activeTab]);
+
+  const professionalWork = [
+    {
+      title: "E-commerce Platform",
+      description: "Built a scalable e-commerce solution using React and Node.js",
+      link: "#",
+      tags: ["React", "Node.js", "MongoDB"]
+    },
+    {
+      title: "Healthcare Dashboard",
+      description: "Developed analytics dashboard for healthcare providers",
+      link: "#",
+      tags: ["Vue.js", "Python", "D3.js"]
+    }
+  ];
+
+  const showcase = [
+    {
+      type: "tweet",
+      content: `<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Unusable Player gets a dark mode 🖤 <a href="https://t.co/7jHHMoC7Vo">pic.twitter.com/7jHHMoC7Vo</a></p>&mdash; Pierre (@pierremartin_) <a href="https://twitter.com/pierremartin_/status/1525104416319315970?ref_src=twsrc%5Etfw">May 13, 2022</a></blockquote>`
+    },
+    {
+      type: "project",
+      title: "Side Project Showcase",
+      description: "A personal project built with Next.js and Three.js",
+      link: "#",
+      image: "/api/placeholder/400/200"
+    }
+  ];
+
+  const articles = [
+    {
+      title: "Building Scalable React Applications",
+      description: "A deep dive into architecture patterns and best practices",
+      date: "Mar 15, 2024",
+      readTime: "8 min read",
+      link: "#"
+    },
+    {
+      title: "The Future of Web Development",
+      description: "Exploring upcoming trends and technologies",
+      date: "Feb 28, 2024",
+      readTime: "12 min read",
+      link: "#"
+    }
+  ];
+
+  const openSource = [
+    {
+      name: "react-awesome-lib",
+      description: "A collection of React hooks and utilities",
+      stars: 1200,
+      forks: 150,
+      link: "#",
+      tags: ["TypeScript", "React"]
+    },
+    {
+      name: "node-api-starter",
+      description: "Production-ready Node.js API boilerplate",
+      stars: 850,
+      forks: 120,
+      link: "#",
+      tags: ["Node.js", "Express"]
+    }
+  ];
+
+  const tabs = [
+    { id: 'professional', label: 'Professional Work' },
+    { id: 'showcase', label: 'Showcase' },
+    { id: 'articles', label: 'Articles' },
+    { id: 'opensource', label: 'Open Source' }
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'professional':
+        return (
+          <div className="grid gap-4 md:grid-cols-2">
+            {professionalWork.map((project, index) => (
+              <a
+                key={index}
+                href={project.link}
+                className="group block p-6 bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
+                  {project.title}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, i) => (
+                    <span key={i} className="px-2 py-1 text-xs rounded-md bg-zinc-800 text-zinc-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+        );
+
+      case 'showcase':
+        return (
+          <div className="space-y-8">
+            {showcase.map((item, index) => (
+              <div key={index} className="bg-zinc-900 rounded-lg border border-zinc-800 overflow-hidden">
+                {item.type === 'tweet' ? (
+                  <div className="p-4" dangerouslySetInnerHTML={{ __html: item.content }} />
+                ) : (
+                  <a href={item.link} className="block group">
+                    <img src={item.image} alt={item.title} className="w-full h-48 object-cover" />
+                    <div className="p-6">
+                      <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
+                        {item.title}
+                      </h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        );
+
+      case 'articles':
+        return (
+          <div className="space-y-4">
+            {articles.map((article, index) => (
+              <a
+                key={index}
+                href={article.link}
+                className="group block p-6 bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
+                  {article.title}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-3">
+                  {article.description}
+                </p>
+                <div className="flex items-center gap-3 text-xs text-zinc-500">
+                  <span>{article.date}</span>
+                  <span>•</span>
+                  <span>{article.readTime}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        );
+
+      case 'opensource':
+        return (
+          <div className="space-y-4">
+            {openSource.map((repo, index) => (
+              <a
+                key={index}
+                href={repo.link}
+                className="group block p-6 bg-zinc-900 rounded-lg border border-zinc-800 hover:border-zinc-700 transition-colors"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-white/90">
+                  {repo.name}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  {repo.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {repo.tags.map((tag, i) => (
+                      <span key={i} className="px-2 py-1 text-xs rounded-md bg-zinc-800 text-zinc-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-4 text-zinc-400">
+                    <div className="flex items-center gap-1">
+                      <Star size={16} />
+                      <span className="text-sm">{repo.stars}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <GitFork size={16} />
+                      <span className="text-sm">{repo.forks}</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        );
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 p-8">
+      {/* Header Section */}
+      <header className="max-w-3xl mx-auto mb-16 text-center">
+        <img
+          src={profile.image}
+          alt={profile.name}
+          className="w-32 h-32 rounded-full mx-auto mb-8 ring-2 ring-zinc-800"
+        />
+        <h1 className="text-4xl font-bold mb-4 text-white tracking-tight">{profile.name}</h1>
+        <p className="text-xl text-zinc-400 mb-10 leading-relaxed">{profile.bio}</p>
+        
+        {/* Social Links */}
+        <div className="flex justify-center gap-3">
+          {[
+            { icon: <Twitter size={18} />, link: profile.twitter },
+            { icon: <Linkedin size={18} />, link: profile.linkedin },
+            { icon: <ExternalLink size={18} />, link: profile.medium }
+          ].map((social, index) => (
+            <a
+              key={index}
+              href={social.link}
+              className="flex items-center justify-center w-10 h-10 bg-zinc-900 rounded-lg border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
+      </header>
+
+      {/* Tab Navigation */}
+      <div className="max-w-3xl mx-auto mb-12">
+        <div className="flex justify-center gap-2 p-1 bg-zinc-900 rounded-lg border border-zinc-800 w-fit mx-auto">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2 rounded-md font-medium text-sm transition-colors ${
+                activeTab === tab.id
+                  ? 'bg-zinc-800 text-white'
+                  : 'text-zinc-400 hover:text-zinc-300'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Content Section */}
+      <main className="max-w-3xl mx-auto">
+        {renderContent()}
+      </main>
+    </div>
+  );
+};
+
+export default Portfolio;
